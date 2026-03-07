@@ -37,7 +37,7 @@ public class UsuarioServiceImplementation implements UsuarioServiceInterface{
 		
 		user.setLogradouro(endereco.logradouro());
 		user.setBairro(endereco.bairro());
-		user.setCidade(endereco.cidade());
+		user.setCidade(endereco.localidade());
 		user.setEstado(endereco.estado());
 		
 		user.setDataCriacao(user.getDataCriacao().now());

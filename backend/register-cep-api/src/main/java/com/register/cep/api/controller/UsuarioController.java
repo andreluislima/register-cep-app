@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.register.cep.api.domain.Usuario;
+import com.register.cep.api.dto.ApiCepResponseDTO;
 import com.register.cep.api.dto.UsuarioRequestDTO;
 import com.register.cep.api.dto.UsuarioResponseDTO;
 import com.register.cep.api.repository.UsuarioRepository;
@@ -25,6 +26,7 @@ public class UsuarioController {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
+	
 	@PostMapping("/criarUsuario")
 	public ResponseEntity<?>criarUsuario(@RequestBody UsuarioRequestDTO dto){
 		Optional<Usuario>user = usuarioRepository.findByCpf(dto.cpf());
@@ -33,6 +35,7 @@ public class UsuarioController {
 		}
 		
 		Usuario usuario = usuarioServiceInterface.criarUsuario(dto);
+		
 		usuarioRepository.save(usuario);
 		
 		return ResponseEntity.ok(new UsuarioResponseDTO(
@@ -40,6 +43,10 @@ public class UsuarioController {
 				usuario.getNome(), 
 				usuario.getCpf(), 
 				usuario.getCep(), 
+				usuario.getLogradouro(),
+				usuario.getBairro(),
+				usuario.getCidade(),
+				usuario.getEstado(),
 				usuario.getDataCriacao(), 
 				usuario.getDataAtualizacao()
 			)

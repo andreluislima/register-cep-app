@@ -9,6 +9,10 @@ public record UsuarioResponseDTO(
 		String cep,
 		String nome,
 		String cpf,
+		String logradouro,
+		String bairro,
+		String cidade,
+		String estado,
 		
 	    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 		LocalDateTime dataCriacao,
