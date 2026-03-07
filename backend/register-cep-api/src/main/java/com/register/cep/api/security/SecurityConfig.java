@@ -17,7 +17,11 @@ public class SecurityConfig {
 		http.csrf(csrf -> csrf.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(
-						authorize -> authorize.requestMatchers(HttpMethod.POST, "/usuario/criarUsuario").permitAll()
+						authorize -> authorize
+								.requestMatchers(HttpMethod.POST, "/usuario/criarUsuario").permitAll()
+								.requestMatchers(HttpMethod.GET, "/usuario/usuarios").permitAll()
+								.requestMatchers(HttpMethod.PUT, "/usuario/editar/**").permitAll()
+								.requestMatchers(HttpMethod.DELETE, "/usuario/remover/**").permitAll()
 								.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll());
 
 		return http.build();

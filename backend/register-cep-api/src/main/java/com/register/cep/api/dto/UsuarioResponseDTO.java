@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public record UsuarioResponseDTO(
+		String mensagem,
 		Long id,
 		String cep,
 		String nome,

@@ -32,8 +32,8 @@ public class UsuarioServiceImplementation implements UsuarioServiceInterface{
 		
 		Usuario user  = new Usuario();
 		user.setCep(dto.cep());
-		user.setCpf(dto.cpf());
 		user.setNome(dto.nome());
+		user.setCpf(dto.cpf());
 		
 		user.setLogradouro(endereco.logradouro());
 		user.setBairro(endereco.bairro());
@@ -53,8 +53,8 @@ public class UsuarioServiceImplementation implements UsuarioServiceInterface{
 		);
 		
 		user.setCep(dto.cep());
-		user.setCpf(dto.cpf());
 		user.setNome(dto.nome());
+		user.setCpf(dto.cpf());
 		
 		return usuarioRepository.save(user);
 	}

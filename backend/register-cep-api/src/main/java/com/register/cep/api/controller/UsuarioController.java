@@ -1,18 +1,24 @@
 package com.register.cep.api.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.register.cep.api.domain.Usuario;
-import com.register.cep.api.dto.ApiCepResponseDTO;
 import com.register.cep.api.dto.UsuarioRequestDTO;
 import com.register.cep.api.dto.UsuarioResponseDTO;
+import com.register.cep.api.dto.UsuarioResponseEditadoDTO;
+import com.register.cep.api.dto.UsuarioResponseRemovidoDTO;
 import com.register.cep.api.repository.UsuarioRepository;
 import com.register.cep.api.service.UsuarioServiceInterface;
 
@@ -47,10 +53,11 @@ public class UsuarioController {
 		usuarioRepository.save(usuario);
 		
 		return ResponseEntity.ok(new UsuarioResponseDTO(
+				"Usuário inserido com sucesso!",
 				usuario.getId(), 
+				usuario.getCep(), 
 				usuario.getNome(), 
 				usuario.getCpf(), 
-				usuario.getCep(), 
 				usuario.getLogradouro(),
 				usuario.getBairro(),
 				usuario.getCidade(),
@@ -61,4 +68,40 @@ public class UsuarioController {
 		);
 	}
 	
+	@GetMapping("/usuarios")
+	public ResponseEntity<List<Usuario>>listarUsuarios(){
+		List<Usuario>usuarios = usuarioServiceInterface.listarUsuarios();
+		return ResponseEntity.ok(usuarios);
+	}
+	
+	@PutMapping("/editar/{id}")
+	public ResponseEntity<UsuarioResponseEditadoDTO>editarUsuario(@PathVariable Long id,  @RequestBody UsuarioRequestDTO dto){
+		Usuario usuario = usuarioServiceInterface.editarUsuario(id, dto);
+		return ResponseEntity.ok(new UsuarioResponseEditadoDTO(
+				
+				"Usuário editado com sucesso!",
+				usuario.getId(), 
+				usuario.getCep(), 
+				usuario.getNome(), 
+				usuario.getCpf(), 
+				usuario.getLogradouro(),
+				usuario.getBairro(),
+				usuario.getCidade(),
+				usuario.getEstado()
+				));
+	}
+	
+	@DeleteMapping("/remover/{id}")
+	public ResponseEntity<UsuarioResponseRemovidoDTO>removerUsuario(@PathVariable Long id){
+		Usuario usuario = usuarioServiceInterface.removerUsuario(id);
+		
+		return ResponseEntity.ok(new UsuarioResponseRemovidoDTO(
+				"Usuário removido com sucesso!",
+				usuario.getId(),
+				usuario.getCpf()
+		));
+		
+	}
+	
+
 }
