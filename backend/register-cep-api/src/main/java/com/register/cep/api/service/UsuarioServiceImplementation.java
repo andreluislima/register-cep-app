@@ -48,20 +48,34 @@ public class UsuarioServiceImplementation implements UsuarioServiceInterface{
 
 	@Override
 	public Usuario editarUsuario(Long id, UsuarioRequestDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
+		Usuario user = usuarioRepository.findById(id).orElseThrow(
+				() -> new RuntimeException("Usuário não encontrado.")
+		);
+		
+		user.setCep(dto.cep());
+		user.setCpf(dto.cpf());
+		user.setNome(dto.nome());
+		
+		return usuarioRepository.save(user);
 	}
 
 	@Override
 	public Usuario removerUsuario(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Usuario user = usuarioRepository.findById(id).orElseThrow(
+				()-> new RuntimeException("Usuário não encontrado.")
+		);
+		
+		usuarioRepository.delete(user);
+		return  user;
 	}
 
 	@Override
 	public List<Usuario> listarUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Usuario> lista = usuarioRepository.findAll();
+		if(lista.isEmpty()) {
+			throw new RuntimeException("Não há usuários cadastrados.");
+		}
+		return lista;
 	}
 
 }
