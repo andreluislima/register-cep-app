@@ -10,5 +10,5 @@ import com.register.cep.api.domain.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	Optional<Usuario>findByCep(String cep);
+	Optional<Usuario>findByCpf(String cpf);
 }
