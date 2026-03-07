@@ -1,6 +1,6 @@
 package com.register.cep.api.dto;
 
-public record ViaCepResponseDTO(
+public record ApiCepResponseDTO(
 		String logradouro,
 		String bairro,
 		String cidade,
