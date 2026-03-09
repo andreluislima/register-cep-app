@@ -9,10 +9,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+} 
+
 .container-fluid {
   border: 2px solid;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
 }
 
@@ -28,18 +32,32 @@
 .content-title {
   border: 2px solid red;
   width: 80%;
+  border-end-end-radius:10px;
+  background-color:#3389faab;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+h1{
+  font-size: 2.1rem;
+  color: #fff;
 }
 
 .content-btn {
   border: 2px solid green;
   width: 20%;
+  display: flex;
+  align-items: end;
+  justify-content: center;
 }
 
 /* TABLE */
 .content-table{
   border: 2px solid red;
   width: 100%;
-  display: flex;
+  overflow-x: auto;
+  padding: 12px;
 }
 
 /* telas menores */

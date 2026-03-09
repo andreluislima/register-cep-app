@@ -4,10 +4,17 @@ function App() {
   return (
     <>
       <div className="container-fluid">
+        {/* Header */}
         <div className="container-header">
-          <div className="content-title"></div>
-          <div className="content-btn"></div>
+          <div className="content-title">
+            <h1>CEP Register - Sistema de Consulta e Gerenciamento de Endereços</h1>
+          </div>
+          <div className="content-btn">
+            <button className="btn btn-primary">Novo Registro</button>
+          </div>
         </div>
+
+        {/* Table */}
         <div className="content-table">
           <table className="table table-striped">
             <thead>
