@@ -1,4 +1,5 @@
 import "./App.css";
+import Form from "./assets/components/form";
 import NavBar from "./assets/components/navbar";
 
 function App() {
@@ -80,6 +81,11 @@ function App() {
               </tr>
             </tbody>
           </table>
+
+          <div>
+            <h2>FORM</h2>
+             <Form/>
+          </div>
         </div>
       {/* </div> */}
     </>
