@@ -1,4 +1,4 @@
-import './index.css';
+import './Table.css';
 
 export default function Table(){
     return(

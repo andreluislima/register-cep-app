@@ -1,4 +1,5 @@
-import "./index.css";
+import "./Form.css";
+
 export default function Form() {
   return (
     <div className="col-md-7 col-lg-8">

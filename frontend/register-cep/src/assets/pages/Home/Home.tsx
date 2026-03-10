@@ -1,5 +1,5 @@
-import Table from '../../components/Table';
-import './index.css';
+import Table from '../../components/Table/Table';
+import './Home.css';
 
 export default function Home(){
     return(
