@@ -23,4 +23,7 @@ p{
   font-size: 1.3rem;
 }
 
- 
+.link{
+  color: #111111;
+  text-decoration: none;
+}

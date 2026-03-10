@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import "./Header.css";
 
@@ -13,8 +14,12 @@ export default function Header() {
           <p>Sistema de Consulta e Gerenciamento de Endereços</p>
         </div>
         <div className="mt-3">
-          <button className="btn btn-primary">Novo Registro</button>
-          <button className="btn btn-secondary mx-4">Ver Registros</button>
+          <button className="btn btn-primary">
+            <Link to={"/novo-registro"} className="link">Novo Registro</Link>
+          </button>
+          <button className="btn btn-secondary mx-4">
+            <Link to={"/"} className="link">Ver Registros</Link>
+          </button>
         </div>
       </div>
     </>
