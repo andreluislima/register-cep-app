@@ -1,13 +1,18 @@
-import './NavBar.css';
+import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary w-100">
         <div className="container-fluid p-3">
-          <a className="navbar-brand" href="#">
-            CEP Register
-          </a>
+
+          <div className="navbar-brand">
+            <Link to={"/"} className="link-logo">
+              CEP Register
+            </Link>
+          </div>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -21,12 +26,14 @@ export default function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link to={"/"} className="link">
                 Home
-              </a>
-              <a className="nav-link" href="#">
-                Endereços
-              </a>
+              </Link>
+
+               <Link to={"/novo-registro"} className="link">
+                Novo Registro
+              </Link>
+
             </div>
           </div>
         </div>
