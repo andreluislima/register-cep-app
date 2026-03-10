@@ -6,8 +6,8 @@
   width: 100%;
   padding: 0;
   
-  /* background-image: linear-gradient(rgba(255, 255, 255, 0.822), rgba(255, 255, 255, 0.822)), url('./assets/img-ruas.webp');
-  background-size: cover; */
+  background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.856)), url('./assets/img-ruas.webp');
+  background-size: cover;
 }
  
 /* telas menores */

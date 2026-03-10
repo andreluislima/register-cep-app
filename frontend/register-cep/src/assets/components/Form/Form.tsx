@@ -6,7 +6,7 @@ export default function Form() {
       <div className="content-form col-md-7 col-lg-8 p-5">
         <form className="needs-validation">
           <div className="row g-3 mb-3">
-            <div className="col-sm-3">
+            <div className="col-sm-3 mb-4">
               <label htmlFor="firstName" className="form-label">
                 CEP
               </label>
