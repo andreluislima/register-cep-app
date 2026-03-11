@@ -5,12 +5,12 @@ export type UsuarioResponse = {
     cep:string;
     logradouro:string;
     bairro:string;
-    cidade:string;
+    localidade:string;
     estado:string;
 }
 
 export type UsuarioRequest = {
-    cpp: string;
+    cep: string;
     nome: string;
     cpf: string;
 }
@@ -18,6 +18,6 @@ export type UsuarioRequest = {
 export type CepResponse = {
     logradouro:string;
     bairro:string;
-    cidade:string;
+    localidade:string;
     estado:string;
 }

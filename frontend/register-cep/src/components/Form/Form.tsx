@@ -1,10 +1,62 @@
+import { useState } from "react";
 import "./Form.css";
+import { useCreateUser } from "../../hooks/integrations/useCreateUserMutation";
+import { useBuscarCep } from "../../hooks/integrations/useBuscarCep";
 
 export default function Form() {
+
+  const [cep, setCep] = useState("");
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
+
+  const [logradouro, setLogradouro] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [localidade, setLocalidade] = useState("");
+  const [estado, setEstado] = useState("");
+
+  const createUser = useCreateUser();
+  const buscarCep = useBuscarCep();
+
+  const handleBuscarCep = async () => {
+    try{
+      const response = await buscarCep.mutateAsync(cep);
+
+      setLogradouro(response.logradouro || "");
+      setBairro(response.bairro || "");
+      setLocalidade(response.localidade || "");
+      setEstado(response.estado || "");
+
+    
+    }catch(error){
+      console.log(`Erro ao buscar o cep, ${error}`);
+      alert("Não foi possível localizar o CEP informado.")
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    createUser.mutate({
+      cep,
+      nome,
+      cpf
+    });
+  };
+
+  const handleCancelar = () => {
+    setCep("");
+    setNome("");
+    setCpf("");
+    setLogradouro("");
+    setBairro("");
+    setLocalidade("");
+    setEstado("");
+  }
+
   return (
     <div className="container-form mb-5">
       <div className="content-form col-md-7 col-lg-8 p-5">
-        <form className="needs-validation">
+        <form className="needs-validation" onSubmit={handleSubmit}>
           <div className="row g-3 mb-3">
             <div className="col-sm-3 mb-4">
               <label htmlFor="firstName" className="form-label">
@@ -15,15 +67,22 @@ export default function Form() {
                 className="form-control"
                 id="firstName"
                 placeholder=""
-                value=""
+                value={cep}
+                onChange={(e) => setCep(e.target.value)}
                 required
               />
               <div className="invalid-feedback">
                 Valid first name is required.
               </div>
             </div>
+
             <div className="col">
-              <button className="btn btn-outline-primary">Buscar</button>
+              <button className="btn btn-outline-primary"
+                onClick={handleBuscarCep}
+                disabled = {buscarCep.isPending || !cep.trim()}
+              >
+              {buscarCep.isPending ? "Buscando..." : "Buscar"}
+              </button>
             </div>
           </div>
 
@@ -37,7 +96,8 @@ export default function Form() {
                 className="form-control"
                 id="firstName"
                 placeholder=""
-                value=""
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
                 required
               />
               <div className="invalid-feedback">
@@ -53,7 +113,8 @@ export default function Form() {
                 className="form-control"
                 id="lastName"
                 placeholder=""
-                value=""
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
                 required
               />
               <div className="invalid-feedback">
@@ -74,7 +135,7 @@ export default function Form() {
                   className="form-control"
                   id="firstName"
                   placeholder=""
-                  value=""
+                  value={logradouro}
                   required
                 />
                 <div className="invalid-feedback">
@@ -90,7 +151,7 @@ export default function Form() {
                   className="form-control"
                   id="lastName"
                   placeholder=""
-                  value=""
+                  value={bairro}
                   required
                 />
                 <div className="invalid-feedback">
@@ -109,7 +170,7 @@ export default function Form() {
                   className="form-control"
                   id="firstName"
                   placeholder=""
-                  value=""
+                  value={localidade}
                   required
                 />
                 <div className="invalid-feedback">
@@ -125,7 +186,7 @@ export default function Form() {
                   className="form-control"
                   id="lastName"
                   placeholder=""
-                  value=""
+                  value={estado}
                   required
                 />
                 <div className="invalid-feedback">
@@ -137,8 +198,17 @@ export default function Form() {
 
           <div className="row">
             <div className="col-sm-3 mt-5">
-              <button className="btn btn-secondary">Cancelar</button>
-              <button className="btn btn-success mx-4">Salvar</button>
+              <button 
+                className="btn btn-secondary"
+                onClick={handleCancelar}
+                >Cancelar
+                </button>
+
+              <button className="btn btn-success mx-4"
+                disabled = {createUser.isPending}
+              >
+                {createUser.isPending ? "Salvando..." : "Salvar"}
+              </button>
             </div>
           </div>
         </form>
