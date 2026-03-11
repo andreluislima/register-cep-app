@@ -6,8 +6,7 @@ import { GLOBAL_KEYS } from "./Keys";
 export const useGetUsers = () => {
   return useQuery<UsuarioResponse[], Error>({
     queryKey: GLOBAL_KEYS.useGetUsers(),
-    // queryFn: () => api.get("/usuarios"),
-    queryFn: () => api.get<UsuarioResponse[]>("/usuarios"),
+    queryFn: () => api.get("/usuarios"),
     retry: false,
     refetchInterval: false,
     refetchOnWindowFocus: false,
