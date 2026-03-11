@@ -1,4 +1,4 @@
 
 export const GLOBAL_KEYS = {
-    useGetUsers: () => ["useGetUsers"],
+    useGetUsers: () => ["users"],
 }as const;
