@@ -6,6 +6,7 @@ type TableProps = {
 };
 
 export default function Table({ usuarios }: TableProps) {
+
   return (
     <>
       <div className="content-table">
@@ -31,7 +32,7 @@ export default function Table({ usuarios }: TableProps) {
                 <td>{usuario.cpf}</td>
                 <td>{usuario.cep}</td>
                 <td>
-                  {usuario.logradouro}, {usuario.bairro} - {usuario.cidade} - {usuario.estado}
+                  {usuario.logradouro}, {usuario.bairro} - {usuario.logradouro} - {usuario.estado}
                 </td>
                 <td>
                   <button className="btn btn-sm btn-primary">Editar</button>
