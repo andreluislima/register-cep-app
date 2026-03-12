@@ -22,25 +22,25 @@ public class Usuario {
 	@Column(name="id")
 	private Long id;
 	
-	@Column(name="nome")
+	@Column(name="nome", nullable = false)
 	private String nome;
 	
-	@Column(name="cpf", unique = true )
+	@Column(name="cpf", nullable = false,  unique = true )
 	private String cpf;
 	
-	@Column(name="cep")
+	@Column(name="cep", nullable = false)
 	private String cep;
 	
-	@Column(name="logradouro")
+	@Column(name="logradouro", nullable = false)
 	private String logradouro;
 	
-	@Column(name="bairro")
+	@Column(name="bairro", nullable = false)
 	private String bairro;
 	
-	@Column(name="cidade")
+	@Column(name="cidade", nullable = false)
 	private String cidade;
 	
-	@Column(name="estado")
+	@Column(name="estado", nullable = false)
 	private String estado;
 	
 	@Column(name="data_criacao")
