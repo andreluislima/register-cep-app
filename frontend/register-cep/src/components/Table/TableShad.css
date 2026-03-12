@@ -1,16 +1,17 @@
-*{
+* {
     margin: 0 auto;
 }
-.content-table{
-  overflow-x: auto;
-  display: flex;
-  
+
+.content-table {
+    overflow-x: auto;
+    display: flex;
+
 }
 
-.table{
-  background-color: transparent;
-  width: 80%;
-  overflow-x: auto;
-  padding: 12px;
-  box-shadow: -3px 2px 9px 0px #665B5B;
+.table {
+    background-color: transparent;
+    width: 80%;
+    overflow-x: auto;
+    padding: 12px;
+    box-shadow: -3px 2px 9px 0px #665B5B;
 }
