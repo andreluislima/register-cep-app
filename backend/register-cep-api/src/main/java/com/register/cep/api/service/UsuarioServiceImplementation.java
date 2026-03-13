@@ -73,9 +73,6 @@ public class UsuarioServiceImplementation implements UsuarioServiceInterface{
 	@Override
 	public List<Usuario> listarUsuarios() {
 		List<Usuario> lista = usuarioRepository.findAll();
-		if(lista.isEmpty()) {
-			throw new RuntimeException("Não há usuários cadastrados.");
-		}
 		return lista;
 	}
 
