@@ -10,6 +10,7 @@ public record UsuarioResponseEditadoDTO(
 		String bairro,
 		String cidade,
 		String estado
-		) {
+		) 
+{
 
 }

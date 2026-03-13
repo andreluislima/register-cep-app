@@ -15,7 +15,7 @@ public class ApiCepServiceImplementation implements ApiCepServiceInterface {
 		
 		String cepLimpo = cep.replaceAll("\\D", "");
 		
-		if(!cepLimpo.matches("\\d{8}")) {
+		if(cepLimpo.length() != 8) {
 			throw new RuntimeException("Cep inválido. Informe apenas 8 digitos.");
 		}
 		
@@ -25,7 +25,6 @@ public class ApiCepServiceImplementation implements ApiCepServiceInterface {
 		if(response == null) {
 			throw new RuntimeException("Não foi possível consultar o endereço");
 		}
-		
 		
 		return response;
 	}

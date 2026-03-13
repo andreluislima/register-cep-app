@@ -4,6 +4,7 @@ public record UsuarioResponseRemovidoDTO(
 		String mensagem,
 		Long id,
 		String cpf
-		) {
+		) 
+{
 
 }

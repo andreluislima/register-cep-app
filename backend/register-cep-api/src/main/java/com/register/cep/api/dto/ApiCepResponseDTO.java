@@ -5,6 +5,7 @@ public record ApiCepResponseDTO(
 		String bairro,
 		String localidade,
 		String estado
-		) {
+		)
+{
 
 }

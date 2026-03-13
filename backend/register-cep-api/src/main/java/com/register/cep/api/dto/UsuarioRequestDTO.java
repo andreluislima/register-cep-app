@@ -13,6 +13,7 @@ public record UsuarioRequestDTO(
 		@NotBlank(message = "CPF é obrigatório")
 		String cpf
 		
-		) {
+		) 
+{
 
 }
