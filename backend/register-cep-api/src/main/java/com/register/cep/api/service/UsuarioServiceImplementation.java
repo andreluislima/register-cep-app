@@ -28,6 +28,7 @@ public class UsuarioServiceImplementation implements UsuarioServiceInterface{
 			throw new RuntimeException(dto.cpf() + "CPF já cadastrado.");
 		}
 		
+		
 		ApiCepResponseDTO endereco = apiCepServiceInterface.buscarEnderecoPorCep(dto.cep());
 		
 		Usuario user  = new Usuario();
