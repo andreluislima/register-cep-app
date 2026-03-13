@@ -3,7 +3,7 @@ import { useGetUsers } from "../../hooks/integrations/useUsersQuery";
 import "./Home.css";
 
 export default function Home() {
-  const { data: usuarios, isLoading, isError , error} = useGetUsers();
+  const { data: usuarios, isLoading, isError, error } = useGetUsers();
 
   if (isLoading) {
     return <p>Carregando usuarios</p>;
@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="container-home">
-      <TableUsuarios usuarios={[]} />
+      <TableUsuarios usuarios={usuarios ?? []} />
     </div>
   );
 }
