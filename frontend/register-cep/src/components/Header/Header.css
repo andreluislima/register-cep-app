@@ -4,7 +4,7 @@
   /* height: 20vh; */
   display: flex;
   flex-wrap: wrap;
-  background-image: linear-gradient(rgba(112, 150, 219, 0.699), rgb(255, 255, 255)), url('../../../assets/cidade.webp');
+  background-image: linear-gradient(rgba(112, 150, 219, 0.698), rgb(255, 255, 255)), url('../../../assets/cidade.webp');
   background-size: cover;
   flex-direction: column;
   align-items: center;

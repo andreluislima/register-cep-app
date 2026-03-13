@@ -15,3 +15,43 @@
     padding: 12px;
     box-shadow: -3px 2px 9px 0px #665B5B;
 }
+
+
+.table-head-data {
+    background-color: #7096dbb2 !important;
+}
+
+.table-head-actions {
+    background-color: #665b5b71 !important;
+    display: flex;
+    justify-content: center;
+}
+
+.table-button {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn {
+    border: 2px solid #e6e2e2c9;
+}
+
+.btn:hover {
+    background-color: #7a7676c9;
+}
+
+.btn-edit {
+    border: 2px solid #f3c704;
+}
+
+.btn-delete {
+    border: 2px solid #f30404b4;
+}
+
+.btn-edit:hover {
+    background-color: #f3c704;
+}
+
+.btn-delete:hover {
+    background-color: #f30404b4;
+}

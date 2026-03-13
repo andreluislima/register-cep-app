@@ -40,14 +40,14 @@ export default function TableShad({ usuarios }: TableProps) {
       <div className="content-table">
         <Table className="table">
           <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader>
+          <TableHeader className="table-header">
             <TableRow>
-              <TableHead>Id</TableHead>
-              <TableHead>Nome</TableHead>
-              <TableHead>CEP</TableHead>
-              <TableHead>CPF</TableHead>
-              <TableHead>Endereço</TableHead>
-              <TableHead>Ações</TableHead>
+              <TableHead className="table-head-data">Id</TableHead>
+              <TableHead className="table-head-data">Nome</TableHead>
+              <TableHead className="table-head-data">CEP</TableHead>
+              <TableHead className="table-head-data">CPF</TableHead>
+              <TableHead className="table-head-data">Endereço</TableHead>
+              <TableHead className="table-head-actions">Ações</TableHead>
             </TableRow>
           </TableHeader>
 
@@ -62,12 +62,14 @@ export default function TableShad({ usuarios }: TableProps) {
                   {usuario.logradouro}, {usuario.bairro}, {usuario.cidade} -{" "}
                   {usuario.estado}
                 </TableCell>
-                <TableCell className="">
-                  <button onClick={() => handleEdit(usuario)}>Editar</button>
 
-                  <button onClick={() => handleDelete(usuario.id)}>
+                <TableCell className="table-button">
+                  <button className="btn btn-edit" onClick={() => handleEdit(usuario)}>Editar</button>
+
+                  <button className="btn btn-delete" onClick={() => handleDelete(usuario.id)}>
                     Excluir
                   </button>
+
                 </TableCell>
               </TableRow>
             ))}
