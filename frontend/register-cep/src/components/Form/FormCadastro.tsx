@@ -211,7 +211,7 @@ export function FormCadastro() {
             limparFormulario();
             navigate("/");
           },
-        }
+        },
       );
       return;
     }
@@ -234,13 +234,42 @@ export function FormCadastro() {
   let textoBotaoSalvar = "";
 
   if (estaEmModoEdicao) {
-    textoBotaoSalvar = editarUsuario.isPending
-      ? "Atualizando..."
-      : "Atualizar";
+    textoBotaoSalvar = editarUsuario.isPending ? "Atualizando..." : "Atualizar";
   } else {
-    textoBotaoSalvar = criarUsuario.isPending
-      ? "Salvando..."
-      : "Salvar";
+    textoBotaoSalvar = criarUsuario.isPending ? "Salvando..." : "Salvar";
+  }
+
+  // Máscaras
+  // Máscara - CEP
+  function formatarCep(valor: string) {
+    const numeros = valor.replace(/\D/g, "").slice(0, 8);
+    if (numeros.length <= 5) return numeros;
+
+    return numeros.slice(0, 5) + "-" + numeros.slice(5);
+  }
+
+  function formatarCPF(valor: string) {
+    const numeros = valor.replace(/\D/g, "").slice(0, 11);
+
+    if (numeros.length <= 3) return numeros;
+
+    if (numeros.length <= 6)
+      return numeros.slice(0, 3) + "." + numeros.slice(3);
+
+    if (numeros.length <= 9)
+      return (
+        numeros.slice(0, 3) + "." + numeros.slice(3, 6) + "." + numeros.slice(6)
+      );
+
+    return (
+      numeros.slice(0, 3) +
+      "." +
+      numeros.slice(3, 6) +
+      "." +
+      numeros.slice(6, 9) +
+      "-" +
+      numeros.slice(9)
+    );
   }
 
   return (
@@ -267,7 +296,7 @@ export function FormCadastro() {
                   id="cep"
                   value={cep}
                   onChange={(e) => {
-                    setCep(e.target.value);
+                    setCep(formatarCep(e.target.value))
                     limparErroDoCampo("cep");
                   }}
                   placeholder="00000-000"
@@ -311,7 +340,7 @@ export function FormCadastro() {
                   id="cpf"
                   value={cpf}
                   onChange={(e) => {
-                    setCpf(e.target.value);
+                    setCpf(formatarCPF(e.target.value));
                     limparErroDoCampo("cpf");
                   }}
                   placeholder="000.000.000-00"
@@ -389,11 +418,16 @@ export function FormCadastro() {
         </CardContent>
 
         <CardFooter className="footer-actions mt-4">
-          <Button className="btn btn-cancelar" type="button" onClick={handleCancelar}>
+          <Button
+            className="btn btn-cancelar"
+            type="button"
+            onClick={handleCancelar}
+          >
             Cancelar
           </Button>
 
-          <Button className="btn btn-submit"
+          <Button
+            className="btn btn-submit"
             type="submit"
             form="formulario-usuario"
             disabled={criarUsuario.isPending || editarUsuario.isPending}

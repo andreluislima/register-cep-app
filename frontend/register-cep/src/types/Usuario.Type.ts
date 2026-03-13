@@ -18,6 +18,6 @@ export type UsuarioRequest = {
 export type CepResponse = {
   logradouro: string;
   bairro: string;
-  cidade: string;
+  localidade: string;
   estado: string;
 };
