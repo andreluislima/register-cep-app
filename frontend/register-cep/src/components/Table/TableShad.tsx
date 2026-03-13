@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -35,11 +34,11 @@ export default function TableShad({ usuarios }: TableProps) {
     });
   };
 
+
   return (
     <>
-      <div className="content-table">
+      <div className="content-table mb-5">
         <Table className="table">
-          <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader className="table-header">
             <TableRow>
               <TableHead className="table-head-data">Id</TableHead>
@@ -76,7 +75,7 @@ export default function TableShad({ usuarios }: TableProps) {
           </TableBody>
           <TableFooter>
             <TableRow>
-              <TableCell colSpan={3}>Total de Endereços</TableCell>
+              <TableCell className="p-3" colSpan={3}>{`Total de endereços: ${usuarios.length}`}</TableCell>
             </TableRow>
           </TableFooter>
         </Table>
