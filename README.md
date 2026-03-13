@@ -113,19 +113,7 @@ O frontend ficará disponível em:
 Swagger disponível em:
 
     http://localhost:8080/swagger-ui.html
-
-
-# 📡 Endpoints Principais
-
-  Método   Endpoint                Descrição
-  -------- ----------------------- ----------------------------
-  GET      /usuarios               Lista todos os usuários
-  POST     /usuario/criarUsuario   Cria um novo usuário
-  PUT      /usuario/editar/{id}    Atualiza usuário
-  DELETE   /usuario/remover/{id}   Remove usuário
-  GET      /buscarCep/{cep}        Consulta endereço pelo CEP
-
-------------------------------------------------------------------------   
+  
 
 # 👨‍💻 Autor
 
